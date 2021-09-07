@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTodoState } from '../TodoContext';
 import TodoItem from './TodoItem';
 
 const TocoListBlock = styled.div`
@@ -10,6 +11,8 @@ const TocoListBlock = styled.div`
 `;
 
 function TodoList() {
+  const state = useTodoState();
+  console.log(state)
   return (
     <TocoListBlock>
       <TodoItem text="테스트 1" done />

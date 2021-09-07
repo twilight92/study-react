@@ -50,14 +50,15 @@ const TodoNextIdContext = createContext();
 export function TodoProvider({children}) {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
   const nextId = useRef(5);
+
   return (
-    <TodoStateContext.ProVider value={state}>
-      <TodoDispatchContext value={dispatch}>
-        <TodoNextIdContext value={nextId}>
+    <TodoStateContext.Provider value={state}>
+      <TodoDispatchContext.Provider value={dispatch}>
+        <TodoNextIdContext.Provider value={nextId}>
           {children}
-        </TodoNextIdContext>
-      </TodoDispatchContext>
-    </TodoStateContext.ProVider>
+        </TodoNextIdContext.Provider>
+      </TodoDispatchContext.Provider>
+    </TodoStateContext.Provider>
   );
 }
 
